@@ -50,23 +50,20 @@ h3 {
 /* Hero */
 #hero {
     height: 100vh;
-    background: url('../img/grape.webp') no-repeat left top;
-    background-size: 50vh;
+    background: no-repeat left top url('../img/grape.webp');
+    background-size: 30vh;
     margin: 0 auto;
     display: grid;
     place-items: center;
 }
 
-#hero > * {
-    padding: 1rem;
-}
-
 #hero .intro {
-    margin-top: 40vh;
+    margin-top: 27.5vh;
     text-align: center;
     display: grid;
     gap: 2rem;
     z-index: 2;
+    padding: 2rem;
 }
 
 #hero .intro a:last-child {
@@ -82,8 +79,8 @@ h3 {
 .wines {
     position: absolute;
     bottom: 0;
-    right: 65px;
-    height: 550px;
+    right: 0;
+    height: 100%;
     width: 100%;
 }
 
@@ -91,36 +88,77 @@ h3 {
     position: relative;
     height: 100%;
     width: 100%;
+    overflow-x: hidden;
 }
 
-.wines .relative .bottlered {
+.wines .relative h1 {
     position: absolute;
-    bottom: 0;
-    right: 65px;
-    z-index: 1;
-    height: 100%;
+    bottom: 10vh;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-.wines .relative .bottlerosé {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 100%;
-}
-
-.wines .relative .bottlewhite {
-    position: absolute;
-    bottom: 0;
-    right: 125px;
-    height: 100%;
-}
-
+.wines .relative .bottlered,
+.wines .relative .bottlerosé,
+.wines .relative .bottlewhite,
 .wines .relative .bottlechampagne {
     position: absolute;
     bottom: 0;
-    right: -75px;
-    height: 100%;
-    z-index: -1;
+    height: 50vh;
+    transform: translateX(50%);
+}
+
+.wines .relative .bottlewhite {
+    right: 20%;
+}
+
+.wines .relative .bottlered {
+    right: 15%;
+    z-index: 1;
+}
+
+.wines .relative .bottlerosé {
+    right: 10%;
+}
+
+.wines .relative .bottlechampagne {
+    right: 5%;
+}
+
+.wines .relative .bottleWhiteCentered,
+.wines .relative .bottleRedCentered,
+.wines .relative .bottleRoséCentered,
+.wines .relative .bottleChampagneCentered {
+    position: absolute;
+    bottom: 0;
+    height: 50vh;
+    transition: right 1s, transform 1s 0.5s, scale 0.25s;
+    transform: translate(50%, -50%);
+}
+
+.bottleWhiteCentered {
+    right: 80%;
+}
+
+.bottleRedCentered {
+    right: 60%;
+    z-index: 1;
+}
+
+.bottleRoséCentered {
+    right: 40%;
+}
+
+.bottleChampagneCentered {
+    right: 20%;
+}
+
+.wines .relative .bottleWhiteCentered:hover,
+.wines .relative .bottleRedCentered:hover,
+.wines .relative .bottleRoséCentered:hover,
+.wines .relative .bottleChampagneCentered:hover {
+    scale: 1.05;
+    cursor: pointer;
 }
 
 /* Us section */
@@ -172,38 +210,6 @@ h3 {
 
 .displayNone {
     display: none !important;
-}
-
-.bottleWhiteCentered {
-    transition: all 1s;
-    position: absolute;
-    bottom: 0;
-    right: 60%;
-    height: 100%;
-}
-
-.bottleRedCentered {
-    transition: all 1s;
-    position: absolute;
-    bottom: 0;
-    right: 40%;
-    height: 100%;
-}
-
-.bottleRoséCentered {
-    transition: all 1s;
-    position: absolute;
-    bottom: 0;
-    right: 20%;
-    height: 100%;
-}
-
-.bottleChampagneCentered {
-    transition: all 1s;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 100%;
 }
 
 @media screen and (min-width: 1000px) {

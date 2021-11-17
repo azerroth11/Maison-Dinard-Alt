@@ -17,7 +17,8 @@ usBtn.addEventListener('click', () => {
 
 const selectionBtn = document.querySelector('#selectionBtn')
 selectionBtn.addEventListener('click', () => {
-    document.querySelector('.intro').classList.add('invisible')
+    const intro = document.querySelector('.intro')
+    intro.classList.add('invisible')
     const bottleWhite = document.querySelector('.bottlewhite')
     bottleWhite.classList.add('bottleWhiteCentered')
     const bottleRed = document.querySelector('.bottlered')
@@ -27,9 +28,14 @@ selectionBtn.addEventListener('click', () => {
     const bottleChampagne = document.querySelector('.bottlechampagne')
     bottleChampagne.classList.add('bottleChampagneCentered')
     setTimeout(() => {
+        intro.classList.add('displayNone')
         bottleWhite.classList.remove('bottlewhite')
         bottleRed.classList.remove('bottlered')
         bottleRosé.classList.remove('bottlerosé')
         bottleChampagne.classList.remove('bottlechampagne')
+
+        const relative = document.querySelector('.relative')
+        const relativeh1 = relative.appendChild(document.createElement('h1'))
+        relativeh1.innerText = 'Choisissez votre boisson'
     }, 500)
 })
