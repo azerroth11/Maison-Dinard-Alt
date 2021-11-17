@@ -33,9 +33,5 @@ selectionBtn.addEventListener('click', () => {
         bottleRed.classList.remove('bottlered')
         bottleRosé.classList.remove('bottlerosé')
         bottleChampagne.classList.remove('bottlechampagne')
-
-        const relative = document.querySelector('.relative')
-        const relativeh1 = relative.appendChild(document.createElement('h1'))
-        relativeh1.innerText = 'Choisissez votre boisson'
     }, 500)
 })
