@@ -34,4 +34,19 @@ selectionBtn.addEventListener('click', () => {
         bottleRosé.classList.remove('bottlerosé')
         bottleChampagne.classList.remove('bottlechampagne')
     }, 500)
+    const white = document.querySelector('.bottleWhiteCentered')
+    const red = document.querySelector('.bottleRedCentered')
+    const rosé = document.querySelector('.bottleRoséCentered')
+    const champagne = document.querySelector('.bottleChampagneCentered')
+    const bottlesArray = [white, red, rosé, champagne]
+
+    bottlesArray.forEach(bottle =>
+        bottle.addEventListener('click', e => {
+            const brokenBottles = bottlesArray.filter(item => item != e.target)
+            brokenBottles.forEach(e => {
+                e.classList.toggle('brokenBottle')
+            })
+            e.target.classList.toggle('chosenBottle')
+        })
+    )
 })
