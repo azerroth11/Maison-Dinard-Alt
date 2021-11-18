@@ -262,6 +262,8 @@ h3 {
 
 @media screen and (min-width: 1000px) {
     #hero {
+        background: no-repeat left top url('../img/grape.webp'),
+            no-repeat right bottom url('../img/growing.webp');
         background-size: 37.5vh;
     }
 
@@ -274,13 +276,11 @@ h3 {
     }
 
     .domainsDiv {
-        /* background-color: red; */
-        right: 40%;
-        top: 55%;
+        right: 30%;
+        top: 50%;
         transform: translate(50%, -50%);
         gap: 0.35rem;
         overflow: hidden;
-        /* overflow: scroll; */
     }
 
     .domainsDiv li {
