@@ -51,7 +51,7 @@ h3 {
 #hero {
     height: 100vh;
     background: no-repeat left top url('../img/grape.webp');
-    background-size: 30vh;
+    background-size: 25vh;
     margin: 0 auto;
     display: grid;
     place-items: center;
@@ -61,7 +61,7 @@ h3 {
     text-align: center;
     display: grid;
     gap: 2rem;
-    z-index: 2;
+    z-index: 10;
     padding: 2rem;
 }
 
@@ -102,19 +102,22 @@ h3 {
 
 .wines .relative .bottlewhite {
     right: 20%;
+    z-index: 4;
 }
 
 .wines .relative .bottlered {
     right: 15%;
-    z-index: 1;
+    z-index: 5;
 }
 
 .wines .relative .bottlerosé {
     right: 10%;
+    z-index: 2;
 }
 
 .wines .relative .bottlechampagne {
     right: 5%;
+    z-index: 3;
 }
 
 .wines .relative .bottleWhiteCentered,
@@ -130,19 +133,22 @@ h3 {
 
 .bottleWhiteCentered {
     right: 80%;
+    z-index: 4;
 }
 
 .bottleRedCentered {
     right: 60%;
-    z-index: 1;
+    z-index: 5;
 }
 
 .bottleRoséCentered {
     right: 40%;
+    z-index: 2;
 }
 
 .bottleChampagneCentered {
     right: 20%;
+    z-index: 3;
 }
 
 .wines .relative .bottleWhiteCentered:hover,
@@ -156,7 +162,7 @@ h3 {
     position: absolute;
     bottom: 0;
     height: 50vh;
-    right: 80%;
+    right: 85%;
     transform: translate(50%, -50%);
     transition: right 0.75s 0.25s;
 }
@@ -168,21 +174,29 @@ h3 {
 
 .domainsDiv {
     position: absolute;
+    right: 32.5%;
     top: 50%;
-    left: 60%;
-    transform: translate(-50%, -50%);
-    width: 50%;
-    height: 50%;
+    transform: translate(50%, -50%);
     display: flex;
     flex-wrap: wrap;
-    z-index: -1;
+    z-index: 0;
+    gap: 0.35rem;
+    overflow-y: scroll;
+    max-height: 80%;
+}
+
+.domainsDiv div {
+    opacity: 1;
+    transition: opacity 1s 1s;
+    margin-bottom: 0.5rem;
 }
 
 .domainsDiv li {
     opacity: 0;
-    min-width: 50%;
-    transform: translateX(15%);
+    min-width: 260px;
     animation: appear forwards 1s 0.5s;
+    margin-left: 1rem;
+    /* margin: 0 auto; */
 }
 
 @keyframes appear {
@@ -237,8 +251,9 @@ h3 {
 
 /* Javascript */
 .invisible {
-    opacity: 0 !important;
     transition: all 0.5s;
+    opacity: 0 !important;
+    position: absolute;
 }
 
 .displayNone {
@@ -246,7 +261,33 @@ h3 {
 }
 
 @media screen and (min-width: 1000px) {
+    #hero {
+        background-size: 37.5vh;
+    }
+
     #hero .intro {
         margin-top: 0;
+    }
+
+    .wines .relative .chosenBottle {
+        right: 80%;
+    }
+
+    .domainsDiv {
+        /* background-color: red; */
+        right: 40%;
+        top: 55%;
+        transform: translate(50%, -50%);
+        gap: 0.35rem;
+        overflow: hidden;
+        /* overflow: scroll; */
+    }
+
+    .domainsDiv li {
+        opacity: 0;
+        min-width: 275px;
+        transform: translateX(5%);
+        animation: appear forwards 1s 0.5s;
+        /* margin: 0 auto; */
     }
 }

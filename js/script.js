@@ -43,8 +43,8 @@ selectionBtn.addEventListener('click', () => {
         bottle.addEventListener('click', e => {
             clearDomainDiv()
             const brokenBottles = bottlesArray.filter(item => item != e.target)
-            brokenBottles.forEach(e => {
-                e.classList.toggle('brokenBottle')
+            brokenBottles.forEach(brokenBottle => {
+                brokenBottle.classList.toggle('brokenBottle')
             })
             e.target.classList.toggle('chosenBottle')
             displayData(e)
@@ -55,224 +55,231 @@ selectionBtn.addEventListener('click', () => {
 function displayData(e) {
     if (e.target.className == 'bottleRedCentered chosenBottle') {
         const bottleColor = 'Rouge'
-        test(bottleColor)
+        createList(bottleColor)
     } else if (e.target.className == 'bottleWhiteCentered chosenBottle') {
         const bottleColor = 'Blanc'
-        test(bottleColor)
+        createList(bottleColor)
     } else if (e.target.className == 'bottleRoséCentered chosenBottle') {
         const bottleColor = 'Rosé'
-        test(bottleColor)
+        createList(bottleColor)
     } else if (e.target.className == 'bottleChampagneCentered chosenBottle') {
         const bottleColor = 'Champagne'
-        test(bottleColor)
+        createList(bottleColor)
     }
 }
 
-function test(bottleColor) {
+function createList(bottleColor) {
     data.forEach(e => {
         if (e.color.includes(bottleColor)) {
-            const domainsDiv = document.querySelector('.domainsDiv')
-            const domain = domainsDiv.appendChild(document.createElement('li'))
-            domain.innerText = e.id
+            const domain = document.querySelector(`.${e.location}`)
+            domain.classList.remove('invisible')
+            const domainName = domain.appendChild(document.createElement('li'))
+            domainName.innerText = e.id
         }
     })
 }
 
 function clearDomainDiv() {
     const domainsDiv = document.querySelector('.domainsDiv')
-    domainsDiv.innerHTML = ''
+    const toBeDeleted = domainsDiv.querySelectorAll('li')
+    toBeDeleted.forEach(e => {
+        e.remove()
+    })
+    Array.from(domainsDiv.children).forEach(e => {
+        e.classList.add('invisible')
+    })
 }
 
 // Data
 const data = [
     {
         location: 'BEAUJOLAIS',
-        id: 'DOMAINE DUBOST',
+        id: 'Domaine Dubost',
         color: ['Rouge'],
     },
     {
         location: 'BEAUJOLAIS',
-        id: 'CHATEAU DE PIZAY',
+        id: 'Château de Pizay',
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     {
         location: 'BORDEAUX',
-        id: 'H. CUVELIER & FILS',
+        id: 'H. Cuvelier & Fils',
         color: ['Rouge'],
     },
     {
         location: 'BORDEAUX',
-        id: 'DOMAINES SELECT',
+        id: 'Domaines Select',
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
-    { location: 'BORDEAUX', id: 'GIRONDE ET GASCOGNE', color: ['Rouge'] },
+    { location: 'BORDEAUX', id: 'Gironde et Gascogne', color: ['Rouge'] },
     {
         location: 'BORDEAUX',
-        id: 'CHATEAU TOURTEAU CHOLLET',
+        id: 'Château Tourteau Chollet',
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     {
         location: 'BORDEAUX',
-        id: 'FAMILLE ANDRE LURTON',
+        id: 'Famille André Lurton',
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     {
         location: 'BOURGOGNE',
-        id: 'DOMAINES DEVILLARD',
+        id: 'Domaines Devillard',
         color: ['Rouge', 'Blanc'],
     },
     {
         location: 'BOURGOGNE',
-        id: 'DOMAINE NATHALIE & GILLES FEVRE',
+        id: 'Domaine Nathalie & Gilles Fèvre',
         color: ['Blanc'],
     },
     {
         location: 'BOURGOGNE',
-        id: 'MAISON RENE LAMY',
+        id: 'Maison René Lamy',
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
-    { location: 'CHAMPAGNE', id: 'BILLECART-SALMON', color: ['Champagne'] },
-    { location: 'CHAMPAGNE', id: 'CHAMPAGNE DRAPPIER', color: ['Champagne'] },
+    { location: 'CHAMPAGNE', id: 'Billecart-Salmon', color: ['Champagne'] },
+    { location: 'CHAMPAGNE', id: 'Champagne Drappier', color: ['Champagne'] },
     {
         location: 'CORSE',
-        id: 'DOMAINE VICO ET VENTURI',
+        id: 'Domaine Vico',
         color: ['Rouge', 'Blanc'],
     },
     {
         location: 'LANGUEDOC',
-        id: 'DOMAINE DE LA CENDRILLON',
+        id: 'Domaine de la Cendrillon',
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     {
         location: 'LANGUEDOC',
-        id: 'DOMAINE GRAND CHEMIN',
+        id: 'Domaine Grand Chemin',
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     {
         location: 'LANGUEDOC',
-        id: 'DOMAINE LA CROIX CHAPTAL',
+        id: 'Domaine la Croix Chaptal',
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
-    { location: 'LANGUEDOC', id: 'DOMAINES BRU', color: ['Rouge'] },
+    { location: 'LANGUEDOC', id: 'Domaines Bru', color: ['Rouge'] },
     {
         location: 'LANGUEDOC',
-        id: 'CHATEAU DE FONTENILLE',
+        id: 'Château de Fontenille',
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     {
         location: 'LANGUEDOC',
-        id: 'ANNE DE JOYEUSE',
+        id: 'Anne de Joyeuse',
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     {
         location: 'LOIRE',
-        id: 'LEVRON & VINCENOT',
+        id: 'Levron & Vincenot',
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     {
         location: 'LOIRE',
-        id: 'DOMAINE FILLIATREAU',
+        id: 'Domaine Filliatreau',
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     {
         location: 'LOIRE',
-        id: 'DOMAINE LAPORTE',
+        id: 'Domaine Laporte',
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
-    { location: 'LOIRE', id: 'DOMAINE PIERRE LUNEAU-PAPIN', color: ['Blanc'] },
+    { location: 'LOIRE', id: 'Domaine Pierre Luneau-Papin', color: ['Blanc'] },
     {
         location: 'LOIRE',
-        id: 'LORIEUX ALAIN & PASCAL',
+        id: 'Lorieux Alain & Pascal',
         color: ['Rosé', 'Rouge'],
     },
     {
         location: 'LOIRE',
-        id: 'DOMAINE MAISON PERE & FILS',
+        id: 'Domaine Maison Père & Fils',
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     {
         location: 'LOIRE',
-        id: 'SAGET LA PERRIERE',
+        id: 'Saget La Perrière',
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     {
         location: 'LOIRE',
-        id: 'DOMAINES TATIN',
+        id: 'Domaines Tatin',
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     {
         location: 'PROVENCE',
-        id: 'CHATEAU PAS DU CERF',
+        id: 'Château Pas du Cerf',
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     {
         location: 'PROVENCE',
-        id: 'DOMAINE DE LA BEGUDE',
+        id: 'Domaine de la Bégude',
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     {
         location: 'PROVENCE',
-        id: 'DOMAINE LA ROUILLERE',
+        id: 'Domaine la Rouillère ',
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     {
         location: 'RHONE',
-        id: 'YANN CHAVE',
+        id: 'Yanne Chave',
         color: ['Rouge', 'Blanc'],
     },
-    { location: 'RHONE', id: 'AMES COMPLICES', color: ['Rouge'] },
+    { location: 'RHONE', id: 'Ames Complices', color: ['Rouge'] },
     {
         location: 'RHONE',
-        id: 'DOMAINE DE BEAURENARD',
+        id: 'Domaine de Beaurenard',
         color: ['Rouge', 'Blanc'],
     },
     {
         location: 'RHONE',
-        id: 'DOMAINE DE LA MORDOREE',
+        id: 'Domaine de la Mordorée',
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     {
         location: 'RHONE',
-        id: 'DOMAINE DE MONTVAC',
+        id: 'Domaine de Montvac',
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     {
         location: 'RHONE',
-        id: 'DOMAINE SAINT AMANT',
+        id: 'Domaine Saint Amant',
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     {
         location: 'RHONE',
-        id: 'CHATEAU DE NAGES',
+        id: 'Château de Nages',
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     {
         location: 'RHONE',
-        id: 'DOAMINE LIONEL FAURY',
+        id: 'Domaine Lionel Faury',
         color: ['Rouge', 'Blanc'],
     },
-    { location: 'SPIRITUEUX', id: 'DIRUM DZAMA', color: ['Spiritueux'] },
+    { location: 'SPIRITUEUX', id: 'Dirum Dzama', color: ['Spiritueux'] },
     {
         location: 'SPIRITUEUX',
-        id: 'LES WHISKIES DU MONDE',
+        id: 'Les Whiksies du Monde',
         color: ['Spiritueux'],
     },
-    { location: 'SPIRITUEUX', id: 'PARDELA SPIRITS', color: ['Spiritueux'] },
-    { location: 'SPIRITUEUX', id: 'MOON HARBOUR', color: ['Spiritueux'] },
-    { location: 'SPIRITUEUX', id: 'RAYMOND RAGNAUD', color: ['Spiritueux'] },
+    { location: 'SPIRITUEUX', id: 'Pardela Spirits', color: ['Spiritueux'] },
+    { location: 'SPIRITUEUX', id: 'Moon Harbour', color: ['Spiritueux'] },
+    { location: 'SPIRITUEUX', id: 'Raymond Ragnaud', color: ['Spiritueux'] },
     {
-        location: 'SUD OUEST',
-        id: 'BISTO DE NAS',
+        location: 'SUD-OUEST',
+        id: 'Bisto de Nas',
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     {
-        location: 'SUD OUEST',
-        id: 'DOMAINES BRUMONT',
+        location: 'SUD-OUEST',
+        id: 'Domaines Brumont',
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     {
-        location: 'SUD OUEST',
-        id: 'DOMAINE TARIQUET',
+        location: 'SUD-OUEST',
+        id: 'Domaine Tariquet',
         color: ['Rosé', 'Blanc', 'Spiritueux'],
     },
 ]
