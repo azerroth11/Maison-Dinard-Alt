@@ -50,6 +50,7 @@ h3 {
 /* Hero */
 #hero {
     height: 100vh;
+    height: -webkit-fill-available;
     background: no-repeat left -25px top url('../img/grape.webp');
     background-size: 25vh;
     margin: 0 auto;
