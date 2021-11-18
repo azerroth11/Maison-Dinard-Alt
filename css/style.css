@@ -184,6 +184,7 @@ h3 {
     gap: 0.35rem;
     overflow-y: scroll;
     max-height: 99%;
+    max-width: 1000px;
 }
 
 .domainsDiv div {
@@ -285,7 +286,8 @@ h3 {
 @media screen and (min-width: 1000px) {
     #hero {
         background: no-repeat left top url('../img/grape.webp'),
-            no-repeat right bottom url('../img/growing.webp');
+            no-repeat right bottom url('../img/growing.webp'),
+            no-repeat center top url('../img/logo.webp');
         background-size: 37.5vh;
     }
 
@@ -298,11 +300,12 @@ h3 {
     }
 
     .domainsDiv {
-        right: 30%;
+        right: 45%;
         top: 50%;
         transform: translate(50%, -50%);
         gap: 0.35rem;
         overflow: hidden;
+        max-height: 75%;
     }
 
     .domainsDiv li {
