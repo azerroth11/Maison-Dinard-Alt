@@ -97,7 +97,7 @@ h3 {
 .wines .relative .bottlechampagne {
     position: absolute;
     bottom: 0;
-    height: 50vh;
+    height: 40vh;
     transform: translateX(50%);
 }
 
@@ -295,10 +295,14 @@ h3 {
         margin-top: 0;
     }
 
-    .wines .relative .bottleWhiteCentered,
-    .wines .relative .bottleRedCentered,
-    .wines .relative .bottleRoséCentered,
-    .wines .relative .bottleChampagneCentered {
+    .bottlered,
+    .bottlerosé,
+    .bottlewhite,
+    .bottlechampagne,
+    .bottleWhiteCentered,
+    .bottleRedCentered,
+    .bottleRoséCentered,
+    .bottleChampagneCentered {
         height: 50vh;
     }
 
