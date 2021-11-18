@@ -50,7 +50,7 @@ h3 {
 /* Hero */
 #hero {
     height: 100vh;
-    background: no-repeat left top url('../img/grape.webp');
+    background: no-repeat left -25px top url('../img/grape.webp');
     background-size: 25vh;
     margin: 0 auto;
     display: grid;
@@ -174,7 +174,7 @@ h3 {
 
 .domainsDiv {
     position: absolute;
-    right: 32.5%;
+    right: 22.5%;
     top: 50%;
     transform: translate(50%, -50%);
     display: flex;
@@ -182,7 +182,7 @@ h3 {
     z-index: 0;
     gap: 0.35rem;
     overflow-y: scroll;
-    max-height: 80%;
+    max-height: 99%;
 }
 
 .domainsDiv div {
@@ -193,7 +193,8 @@ h3 {
 
 .domainsDiv li {
     opacity: 0;
-    min-width: 260px;
+    min-width: 200px;
+    max-width: 220px;
     animation: appear forwards 1s 0.5s;
     margin-left: 1rem;
 }
