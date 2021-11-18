@@ -196,7 +196,6 @@ h3 {
     min-width: 260px;
     animation: appear forwards 1s 0.5s;
     margin-left: 1rem;
-    /* margin: 0 auto; */
 }
 
 @keyframes appear {
