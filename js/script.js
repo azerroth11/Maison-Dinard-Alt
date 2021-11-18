@@ -48,6 +48,7 @@ selectionBtn.addEventListener('click', () => {
             })
             e.target.classList.toggle('chosenBottle')
             displayData(e)
+            bottleOpener()
         })
     )
 })
@@ -87,6 +88,23 @@ function clearDomainDiv() {
     })
     Array.from(domainsDiv.children).forEach(e => {
         e.classList.add('invisible')
+    })
+}
+
+function bottleOpener() {
+    const bottleOpener = document.querySelector('.bottleOpener')
+    bottleOpener.classList.toggle('bottleOpenerInactive')
+    bottleOpener.classList.toggle('bottleOpenerActive')
+    bottleOpener.addEventListener('click', () => {
+        const brokenBottlesArray = document.querySelectorAll('.brokenBottle')
+        brokenBottlesArray.forEach(brokenBottle => {
+            brokenBottle.classList.remove('brokenBottle')
+        })
+        const chosenBottle = document.querySelector('.chosenBottle')
+        chosenBottle.classList.remove('chosenBottle')
+        bottleOpener.classList.toggle('bottleOpenerInactive')
+        bottleOpener.classList.toggle('bottleOpenerActive')
+        clearDomainDiv()
     })
 }
 

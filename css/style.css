@@ -209,6 +209,26 @@ h3 {
     }
 }
 
+.bottleOpener {
+    position: absolute;
+    bottom: 0;
+    max-height: 15vh;
+    transition: left 1s, transform 0.25s;
+}
+
+.bottleOpener:hover {
+    cursor: pointer;
+    transform: translateX(2.5%);
+}
+
+.bottleOpenerInactive {
+    left: -100vw;
+}
+
+.bottleOpenerActive {
+    left: -25px;
+}
+
 /* Us section */
 #us {
     background-color: var(--background);
