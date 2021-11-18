@@ -16,42 +16,62 @@ usBtn.addEventListener('click', () => {
 })
 
 const selectionBtn = document.querySelector('#selectionBtn')
-selectionBtn.addEventListener('click', () => {
-    const intro = document.querySelector('.intro')
-    intro.classList.add('invisible')
-    const bottleWhite = document.querySelector('.bottlewhite')
-    bottleWhite.classList.add('bottleWhiteCentered')
-    const bottleRed = document.querySelector('.bottlered')
-    bottleRed.classList.add('bottleRedCentered')
-    const bottleRosé = document.querySelector('.bottlerosé')
-    bottleRosé.classList.add('bottleRoséCentered')
-    const bottleChampagne = document.querySelector('.bottlechampagne')
-    bottleChampagne.classList.add('bottleChampagneCentered')
-    setTimeout(() => {
-        intro.classList.add('displayNone')
-        bottleWhite.classList.remove('bottlewhite')
-        bottleRed.classList.remove('bottlered')
-        bottleRosé.classList.remove('bottlerosé')
-        bottleChampagne.classList.remove('bottlechampagne')
-    }, 500)
-    const white = document.querySelector('.bottleWhiteCentered')
-    const red = document.querySelector('.bottleRedCentered')
-    const rosé = document.querySelector('.bottleRoséCentered')
-    const champagne = document.querySelector('.bottleChampagneCentered')
-    const bottlesArray = [white, red, rosé, champagne]
-    bottlesArray.forEach(bottle =>
-        bottle.addEventListener('click', e => {
-            clearDomainDiv()
-            const brokenBottles = bottlesArray.filter(item => item != e.target)
-            brokenBottles.forEach(brokenBottle => {
-                brokenBottle.classList.toggle('brokenBottle')
+const bottleOpener = document.querySelector('.bottleOpener')
+
+;(function () {
+    selectionBtn.addEventListener('click', () => {
+        const intro = document.querySelector('.intro')
+        intro.classList.add('invisible')
+        const bottleWhite = document.querySelector('.bottlewhite')
+        bottleWhite.classList.add('bottleWhiteCentered')
+        const bottleRed = document.querySelector('.bottlered')
+        bottleRed.classList.add('bottleRedCentered')
+        const bottleRosé = document.querySelector('.bottlerosé')
+        bottleRosé.classList.add('bottleRoséCentered')
+        const bottleChampagne = document.querySelector('.bottlechampagne')
+        bottleChampagne.classList.add('bottleChampagneCentered')
+        setTimeout(() => {
+            intro.classList.add('displayNone')
+            bottleWhite.classList.remove('bottlewhite')
+            bottleRed.classList.remove('bottlered')
+            bottleRosé.classList.remove('bottlerosé')
+            bottleChampagne.classList.remove('bottlechampagne')
+        }, 500)
+        const white = document.querySelector('.bottleWhiteCentered')
+        const red = document.querySelector('.bottleRedCentered')
+        const rosé = document.querySelector('.bottleRoséCentered')
+        const champagne = document.querySelector('.bottleChampagneCentered')
+        const bottlesArray = [white, red, rosé, champagne]
+        bottlesArray.forEach(bottle =>
+            bottle.addEventListener('click', e => {
+                clearDomainDiv()
+                const brokenBottles = bottlesArray.filter(
+                    item => item != e.target
+                )
+                brokenBottles.forEach(brokenBottle => {
+                    brokenBottle.classList.toggle('brokenBottle')
+                })
+                e.target.classList.toggle('chosenBottle')
+                displayData(e)
+                toggleBottleOpener()
             })
-            e.target.classList.toggle('chosenBottle')
-            displayData(e)
-            bottleOpener()
+        )
+    })
+
+    bottleOpener.addEventListener('click', () => {
+        const brokenBottlesArray = document.querySelectorAll('.brokenBottle')
+        brokenBottlesArray.forEach(brokenBottle => {
+            brokenBottle.classList.remove('brokenBottle')
         })
-    )
-})
+        const chosenBottle = document.querySelector('.chosenBottle')
+        if (chosenBottle != null) {
+            chosenBottle.classList.remove('chosenBottle')
+        }
+        bottleOpener.classList.toggle('bottleOpenerInactive')
+        bottleOpener.classList.toggle('bottleOpenerActive')
+        clearDomainDiv()
+    })
+})()
 
 function displayData(e) {
     if (e.target.className == 'bottleRedCentered chosenBottle') {
@@ -91,23 +111,9 @@ function clearDomainDiv() {
     })
 }
 
-function bottleOpener() {
-    const bottleOpener = document.querySelector('.bottleOpener')
+function toggleBottleOpener() {
     bottleOpener.classList.toggle('bottleOpenerInactive')
     bottleOpener.classList.toggle('bottleOpenerActive')
-    bottleOpener.addEventListener('click', () => {
-        const brokenBottlesArray = document.querySelectorAll('.brokenBottle')
-        brokenBottlesArray.forEach(brokenBottle => {
-            brokenBottle.classList.remove('brokenBottle')
-        })
-        const chosenBottle = document.querySelector('.chosenBottle')
-        if (chosenBottle != null) {
-            chosenBottle.classList.remove('chosenBottle')
-        }
-        bottleOpener.classList.toggle('bottleOpenerInactive')
-        bottleOpener.classList.toggle('bottleOpenerActive')
-        clearDomainDiv()
-    })
 }
 
 // Data
