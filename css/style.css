@@ -113,7 +113,7 @@ h3 {
 
 .wines .relative .bottlerosé {
     right: 10%;
-    z-index: 2;
+    z-index: 4;
 }
 
 .wines .relative .bottlechampagne {
@@ -127,7 +127,7 @@ h3 {
 .wines .relative .bottleChampagneCentered {
     position: absolute;
     bottom: 0;
-    height: 50vh;
+    height: 40vh;
     transition: right 1s, transform 1s 0.5s, scale 0.25s;
     transform: translate(50%, -50%);
 }
@@ -144,7 +144,7 @@ h3 {
 
 .bottleRoséCentered {
     right: 40%;
-    z-index: 2;
+    z-index: 4;
 }
 
 .bottleChampagneCentered {
@@ -295,17 +295,23 @@ h3 {
         margin-top: 0;
     }
 
+    .wines .relative .bottleWhiteCentered,
+    .wines .relative .bottleRedCentered,
+    .wines .relative .bottleRoséCentered,
+    .wines .relative .bottleChampagneCentered {
+        height: 50vh;
+    }
+
     .wines .relative .chosenBottle {
         right: 80%;
     }
 
     .domainsDiv {
-        right: 45%;
+        right: 40%;
         top: 50%;
-        transform: translate(50%, -50%);
+        transform: translate(50%, -45%);
         gap: 0.35rem;
         overflow: hidden;
-        max-height: 75%;
     }
 
     .domainsDiv li {
