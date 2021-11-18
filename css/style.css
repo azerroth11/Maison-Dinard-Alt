@@ -166,6 +166,34 @@ h3 {
     transition: transform 0.75s;
 }
 
+.domainsDiv {
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    z-index: -1;
+}
+
+.domainsDiv li {
+    opacity: 0;
+    min-width: 50%;
+    transform: translateX(15%);
+    animation: appear forwards 1s 0.5s;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 /* Us section */
 #us {
     background-color: var(--background);
