@@ -101,7 +101,9 @@ function bottleOpener() {
             brokenBottle.classList.remove('brokenBottle')
         })
         const chosenBottle = document.querySelector('.chosenBottle')
-        chosenBottle.classList.remove('chosenBottle')
+        if (chosenBottle != null) {
+            chosenBottle.classList.remove('chosenBottle')
+        }
         bottleOpener.classList.toggle('bottleOpenerInactive')
         bottleOpener.classList.toggle('bottleOpenerActive')
         clearDomainDiv()
