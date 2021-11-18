@@ -174,7 +174,7 @@ h3 {
 
 .domainsDiv {
     position: absolute;
-    right: 22.5%;
+    right: 25%;
     top: 50%;
     transform: translate(50%, -50%);
     display: flex;
@@ -189,6 +189,7 @@ h3 {
     opacity: 1;
     transition: opacity 1s 1s;
     margin-bottom: 0.5rem;
+    min-width: 250px;
 }
 
 .domainsDiv li {
