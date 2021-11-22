@@ -30,6 +30,8 @@ const bottleOpener = document.querySelector('.bottleOpener')
         bottleRosé.classList.add('bottleRoséCentered')
         const bottleChampagne = document.querySelector('.bottlechampagne')
         bottleChampagne.classList.add('bottleChampagneCentered')
+        const contact = document.querySelector('#contact')
+        contact.classList.remove('invisible')
         setTimeout(() => {
             intro.classList.add('displayNone')
             bottleWhite.classList.remove('bottlewhite')
@@ -69,6 +71,7 @@ const bottleOpener = document.querySelector('.bottleOpener')
         }
         bottleOpener.classList.toggle('bottleOpenerInactive')
         bottleOpener.classList.toggle('bottleOpenerActive')
+        contact.classList.toggle('invisible')
         clearDomainDiv()
     })
 })()
@@ -114,6 +117,7 @@ function clearDomainDiv() {
 function toggleBottleOpener() {
     bottleOpener.classList.toggle('bottleOpenerInactive')
     bottleOpener.classList.toggle('bottleOpenerActive')
+    contact.classList.toggle('invisible')
 }
 
 // Data
@@ -131,6 +135,7 @@ const data = [
     {
         location: 'BORDEAUX',
         id: 'H. Cuvelier & Fils',
+        products: ['Vins de Bordeaux'],
         color: ['Rouge'],
     },
     {
@@ -147,33 +152,49 @@ const data = [
     {
         location: 'BORDEAUX',
         id: 'Famille André Lurton',
+        products: ['AOC Pessac Leognan'],
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     {
         location: 'BOURGOGNE',
         id: 'Domaines Devillard',
+        products: ['AOC Mercurey'],
         color: ['Rouge', 'Blanc'],
     },
     {
         location: 'BOURGOGNE',
         id: 'Domaine Nathalie & Gilles Fèvre',
+        products: ['AOC Chablis'],
         color: ['Blanc'],
     },
     {
         location: 'BOURGOGNE',
         id: 'Maison René Lamy',
+        products: ['Vins de Bourgogne'],
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
-    { location: 'CHAMPAGNE', id: 'Billecart-Salmon', color: ['Champagne'] },
-    { location: 'CHAMPAGNE', id: 'Champagne Drappier', color: ['Champagne'] },
+    {
+        location: 'CHAMPAGNE',
+        id: 'Billecart-Salmon',
+        products: ['Champagne'],
+        color: ['Champagne'],
+    },
+    {
+        location: 'CHAMPAGNE',
+        id: 'Champagne Drappier',
+        products: ['Champagne'],
+        color: ['Champagne'],
+    },
     {
         location: 'CORSE',
         id: 'Domaine Vico',
+        products: ['Vins de Corse'],
         color: ['Rouge', 'Blanc'],
     },
     {
         location: 'LANGUEDOC',
         id: 'Domaine de la Cendrillon',
+        products: ['AOC Corbières'],
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     {
@@ -210,17 +231,20 @@ const data = [
     {
         location: 'LOIRE',
         id: 'Domaine Laporte',
+        products: ['AOC Sancerre & Pouilly'],
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     { location: 'LOIRE', id: 'Domaine Pierre Luneau-Papin', color: ['Blanc'] },
     {
         location: 'LOIRE',
         id: 'Lorieux Alain & Pascal',
+        products: ['AOC St Nicolas de Bourgueil & Chinon'],
         color: ['Rosé', 'Rouge'],
     },
     {
         location: 'LOIRE',
         id: 'Domaine Maison Père & Fils',
+        products: ['AOC Cheverny'],
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     {
@@ -236,6 +260,7 @@ const data = [
     {
         location: 'PROVENCE',
         id: 'Château Pas du Cerf',
+        products: ['AOC Cotes de Provence'],
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     {
@@ -251,6 +276,7 @@ const data = [
     {
         location: 'RHONE',
         id: 'Yanne Chave',
+        products: ['Crozes Hermitage & Hermitage'],
         color: ['Rouge', 'Blanc'],
     },
     { location: 'RHONE', id: 'Ames Complices', color: ['Rouge'] },
@@ -262,11 +288,13 @@ const data = [
     {
         location: 'RHONE',
         id: 'Domaine de la Mordorée',
+        products: ['Vins du Rhone – AOC Tavel'],
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     {
         location: 'RHONE',
         id: 'Domaine de Montvac',
+        products: ['AOC Vacqueyras,& Gigondas'],
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     {
@@ -282,6 +310,7 @@ const data = [
     {
         location: 'RHONE',
         id: 'Domaine Lionel Faury',
+        products: ['Vins du Rhone – St Joseph'],
         color: ['Rouge', 'Blanc'],
     },
     { location: 'SPIRITUEUX', id: 'Dirum Dzama', color: ['Spiritueux'] },
@@ -296,16 +325,19 @@ const data = [
     {
         location: 'SUD-OUEST',
         id: 'Bisto de Nas',
+        products: ['Vins du Sud Ouest'],
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     {
         location: 'SUD-OUEST',
         id: 'Domaines Brumont',
+        products: ['Vins du Sud Ouest'],
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     {
         location: 'SUD-OUEST',
         id: 'Domaine Tariquet',
+        products: ['Vins de Cotes de Gascogne'],
         color: ['Rosé', 'Blanc', 'Spiritueux'],
     },
 ]
