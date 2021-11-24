@@ -301,7 +301,7 @@ const data = [
     {
         location: 'RHONE',
         id: 'Domaine de Montvac',
-        products: ['AOC Vacqueyras,& Gigondas'],
+        products: ['AOC Vacqueyras & Gigondas'],
         color: ['Rosé', 'Rouge', 'Blanc'],
     },
     {
