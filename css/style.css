@@ -213,6 +213,17 @@ h3 {
     max-width: 220px;
     animation: appear forwards 1s 0.5s;
     margin-left: 1rem;
+    font-weight: bold;
+}
+
+.domainsDiv .domainProducts {
+    color: #660e49;
+    margin-left: 0.5rem;
+    font-weight: normal;
+}
+
+#contact {
+    transition: opacity 1s 0.5s !important;
 }
 
 @keyframes appear {

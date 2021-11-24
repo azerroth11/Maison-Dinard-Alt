@@ -99,6 +99,13 @@ function createList(bottleColor) {
             domain.classList.remove('invisible')
             const domainName = domain.appendChild(document.createElement('li'))
             domainName.innerText = e.id
+            if (e.products != undefined) {
+                const domainProducts = domainName.appendChild(
+                    document.createElement('p')
+                )
+                domainProducts.classList.add('domainProducts')
+                domainProducts.innerText = e.products
+            }
         }
     })
 }
